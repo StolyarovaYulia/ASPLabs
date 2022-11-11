@@ -1,0 +1,11 @@
+﻿@model Lab3_.ViewModels.InfoViewModel
+@{
+    ViewData["Title"] = "Информация о клиенте";
+}
+
+<div class="container">
+    <h1>Client data</h1>
+    <p>remote ip: @Model.IpAddress</p>
+    <p>reffer: @Model.Reffer</p>
+    <p>user agent: @Model.UserAgent</p>
+</div>

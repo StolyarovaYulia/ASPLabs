@@ -1,0 +1,70 @@
+﻿@model Lab3_.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Все данные";
+}
+<table border="0" cellspacing="100">
+    <tr>
+        <td>
+            <table border="1">
+                <caption>Жанры</caption>
+                <tr>
+                    <th>#</th>
+                    <th>Наименование</th>
+                    <th>Описание</th>
+                </tr>
+                @foreach (var genre in Model.Genres)
+                {
+                    <tr>
+                        <td>@genre.Id</td>
+                        <td>@genre.Name</td>
+                        <td>@genre.Description</td>
+                    </tr>
+                }
+            </table>
+        </td>
+
+        <td style="padding-left: 30px">
+            <table border="1">
+                <caption>Исполнители</caption>
+                <tr>
+                    <th>#</th>
+                    <th>Наименование</th>
+                    <th>Группа</th>
+                    <th></th>
+                </tr>
+                @foreach (var performer in Model.Performers)
+                {
+                    <tr>
+                        <td>@performer.Id</td>
+                        <td>@performer.Name</td>
+                        <td>@(performer.IsGroup ? "Да" : "Нет")</td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>
+<table border="1">
+    <caption>Треки</caption>
+    <tr>
+        <th>#</th>
+        <th>Наименование</th>
+        <th>Дата выхода</th>
+        <th>Исполнитель</th>
+        <th>Жанр</th>
+        <th>Длительность</th>
+        <th>Рейтинг</th>
+    </tr>
+    @foreach (var track in Model.Tracks)
+    {
+        <tr>
+            <td>@track.Id</td>
+            <td>@track.Name</td>
+            <td>@track.CreationDate.ToString("d")</td>
+            <td>@track.Performer</td>
+            <td>@track.Genre</td>
+            <td>@track.Duration</td>
+            <td>@track.Rating</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Performer>
+
+@{
+    ViewData["Title"] = "Исполнители";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Исполнители</h2>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Наименование
+        </th>
+        <th>
+            Группа
+        </th>
+            <th>
+                Описание
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @(item.IsGroup ? "Да" : "Нет")
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
